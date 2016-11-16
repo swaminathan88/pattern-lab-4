@@ -5,8 +5,11 @@
 ******************************************************/
 var gulp = require('gulp'),
   path = require('path'),
+  less = require('gulp-less')
   browserSync = require('browser-sync').create(),
-  argv = require('minimist')(process.argv.slice(2));
+  argv = require('minimist')(process.argv.slice(2)),
+  sourcemaps = require('gulp-sourcemaps'),
+  plumber = require('gulp-plumber');
 
 function resolvePath(pathInput) {
   return path.resolve(pathInput).replace(/\\/g,"/");
@@ -64,6 +67,20 @@ gulp.task('pl-copy:styleguide-css', function(){
     .pipe(browserSync.stream());
 });
 
+gulp.task('less', function () {
+
+  console.log("inside less compile")
+  return gulp.src([
+    path.resolve(paths().source.less, 'style.less')
+  ])
+
+    .pipe(sourcemaps.init())
+    .pipe(less())
+    .pipe(sourcemaps.write())
+    .pipe(gulp.dest(path.resolve(paths().public.css)))
+    .pipe(browserSync.stream());
+});
+
 /******************************************************
  * PATTERN LAB CONFIGURATION - API with core library
 ******************************************************/
@@ -83,15 +100,24 @@ function build(done) {
   patternlab.build(done, getConfiguredCleanOption());
 }
 
+function onError(err) {
+
+  console.log(err);
+
+}
+
+
 gulp.task('pl-assets', gulp.series(
   gulp.parallel(
     'pl-copy:js',
     'pl-copy:img',
     'pl-copy:favicon',
     'pl-copy:font',
+
     'pl-copy:css',
     'pl-copy:styleguide',
-    'pl-copy:styleguide-css'
+    'pl-copy:styleguide-css',
+    'less'
   ),
   function(done){
     done();
@@ -131,6 +157,7 @@ gulp.task('patternlab:installplugin', function (done) {
   done();
 });
 
+
 /******************************************************
  * SERVER AND WATCH TASKS
 ******************************************************/
@@ -146,15 +173,20 @@ function getTemplateWatches() {
 }
 
 function reload() {
+ console.log("reload browser")
   browserSync.reload();
 }
 
 function reloadCSS() {
+  console.log("reload css")
   browserSync.reload('*.css');
 }
 
 function watch() {
+
+
   gulp.watch(resolvePath(paths().source.css) + '/**/*.css', { awaitWriteFinish: true }).on('change', gulp.series('pl-copy:css', reloadCSS));
+   gulp.watch(resolvePath(paths().source.less) + '/**/*.less', { awaitWriteFinish: true }).on('change', gulp.series('less', reloadCSS));
   gulp.watch(resolvePath(paths().source.styleguide) + '/**/*.*', { awaitWriteFinish: true }).on('change', gulp.series('pl-copy:styleguide', 'pl-copy:styleguide-css', reloadCSS));
 
   var patternWatches = [
@@ -168,7 +200,7 @@ function watch() {
   ].concat(getTemplateWatches());
 
   console.log(patternWatches);
-
+ 
   gulp.watch(patternWatches, { awaitWriteFinish: true }).on('change', gulp.series(build, reload));
 }
 

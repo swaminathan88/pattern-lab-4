@@ -30,5 +30,10 @@
   "license": "MIT",
   "engines": {
     "node": ">=5.0"
+  },
+  "devDependencies": {
+    "gulp-customize-bootstrap": "0.0.6",
+    "gulp-plumber": "^1.1.0",
+    "gulp-watch-less": "^1.0.1"
   }
 }

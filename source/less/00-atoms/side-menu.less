@@ -1,0 +1,51 @@
+
+@asidebg : #0066a1;
+@asidecolor : #fff;
+@highlitecolor:rgba(255, 255, 255, 0.2);
+
+.hoverRules()
+{
+	background-color:@highlitecolor;
+       text-decoration:underline;
+
+}
+.bordered {
+
+  border-bottom: solid 1px @asidecolor;
+}
+
+.listyle{
+	position:relative;
+	display:block;
+	padding: 10px;
+    .bordered;
+}
+.aside-heading{
+   text-align:center;
+   font-weight:bold;
+	.listyle;
+	background-color:@asidebg;
+	color:@asidecolor;
+}
+
+.aside-menu{
+	background-color:@asidebg;
+    color:@asidecolor;
+li{
+
+	 &:hover {
+     .hoverRules()
+    }
+.listyle;
+
+a{
+	color:@asidecolor;
+	text-decoration:none;
+
+
+}
+
+}
+
+}
+
