@@ -1,0 +1,50 @@
+  @footerbg: linear-gradient(to bottom right,#003655 0,#0066a1 50%,#0096ee 100%);
+  @hoverbg : #4395c3;
+  
+footer{
+
+	  background:@footerbg;
+
+
+    .foothoverRules()
+{
+  background-color:@hoverbg;
+      
+
+}
+
+
+    h2{
+     color: #fff;
+         font-size: 1.1em;
+    }
+   ul> li {
+   
+    color:@asidecolor;
+     padding:10px;
+     .bordered;
+     cursor:pointer;
+ &:hover {
+     .foothoverRules()
+    }
+   @media(min-width:@screenTablet){
+ &:hover {
+     background-color:@footerbg;
+    }
+
+   }
+
+   }
+   ul> li> ul{
+   
+   display:none;
+
+
+   @media(min-width:@screenTablet){
+   display:block;
+   }
+    
+   }
+
+
+}

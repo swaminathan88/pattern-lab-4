@@ -1,0 +1,30 @@
+{
+	"menucategory":[
+
+	{
+		"name" : "solar"
+		},
+
+		{
+         "name" : "Telivision"
+
+		},{
+
+		 "name" : "Ipods"
+		},{
+
+			"name" : "kitchen"
+		},{
+
+			"name" : "groming"
+		},{
+
+			"name" : "display"
+		},{
+			"name": "lights"
+		},{
+			"name" : "medical"
+		}
+]
+
+}

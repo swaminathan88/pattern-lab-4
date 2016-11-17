@@ -1,0 +1,33 @@
+{
+	"footerli":[
+
+	{
+		"name" : "Innovation",
+		"list" :["innov1","innov2","innov3","innov4","innov5"]
+
+		},
+
+		{
+         "name" : "technology",
+	      "list" :["techno1","techno1","techno1","techno1","techno1"]
+
+		},{
+
+		 "name" : "empowerment",
+		   "list" :["empo-1","empo-2","empo-3","empo-4","empo-5"]
+		},{
+
+			"name" : "future",
+		    "list" :["future-1","future-2","future-3","future-4","future-5"]
+		},{
+
+			"name" : "eco",
+			"list" :["eco-1","eco-2","eco-3","eco-4","eco-5"]
+		},{
+
+			"name" : "aqua",
+			"list" :["aqua-1","aqua-2","aqua-3","aqua-4","aqua-5"]
+		}
+]
+
+}

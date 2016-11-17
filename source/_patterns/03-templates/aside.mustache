@@ -1,19 +1,28 @@
 
+<div class="aside-block  col-mb-12 col-12 col-dt-12 col-ld-12">
+
+
+<div class="mob-menu" onclick="switchmenu()">
+
+</div>
+
+<div id="aside-lists" class="aside-lists">
 <h3 class="aside-heading">Categorys</h3>
 
 <ul class="aside-menu">  
 
-                
+                {{# menucategory}}
 
-                        <li><a href="#">Archimedes' principle</a>
+                {{> 01-molecules/asidelist}}
 
-                        </li><li><a href="#">Coulomb's law</a></li>
-                        <li><a href="#">Joule's laws</a></li>
-                           <li><a href="#">Archimedes' principle</a>
-
-                        </li><li><a href="#">Coulomb's law</a></li>
-                        <li><a href="#">Joule's laws</a></li>
-               
-            
+                   {{/menucategory}}
 
 </ul>
+
+</div>
+
+</div>
+
+
+
+
