@@ -45,3 +45,7 @@
 [1117/171931:ERROR:file_io.cc(30)] read: expected 4, observed 0
 [1117/175533:ERROR:file_io.cc(30)] read: expected 4, observed 0
 [1117/180519:ERROR:file_io.cc(30)] read: expected 4, observed 0
+[1117/183606:ERROR:file_io.cc(30)] read: expected 4, observed 0
+[1117/183745:ERROR:file_io.cc(30)] read: expected 4, observed 0
+[1117/184026:ERROR:file_io.cc(30)] read: expected 4, observed 0
+[1117/184116:ERROR:file_io.cc(30)] read: expected 4, observed 0
